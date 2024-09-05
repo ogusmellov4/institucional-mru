@@ -16,10 +16,6 @@
         width: 100%;
     }
 
-    .navigation-menu-mobile {
-        display: none !important;
-    }
-
     .section-menu ul {
         display: flex;
         flex-direction: column;
@@ -232,6 +228,11 @@
 
     #conteudoProgresso, #apresentacao, #contatoInfo {
         flex-wrap: wrap;
+    }
+
+    .navigation-menu-mobile div ul {
+        display: flex;
+        flex-direction: column;
     }
 }
 

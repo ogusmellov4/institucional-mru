@@ -78,6 +78,16 @@
         const navigationMenuMobile = document.querySelector('.navigation-menu-mobile');
 
         menuMobileBtn.addEventListener('click', () => {
-        navigationMenuMobile.classList.toggle('active'); // Toggle active class for visibility
+            console.log('Botão clicado');
+            navigationMenuMobile.classList.toggle('active'); // Toggle active class for visibility
         }); 
     </script>
+    <style>
+        .navigation-menu-mobile {
+            display: none;
+        }
+
+        .navigation-menu-mobile.active {
+            display: block;
+        }
+    </style>
