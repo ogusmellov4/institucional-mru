@@ -1,0 +1,240 @@
+@media screen and (max-width: 1024px) {
+    .section-line-wrapper {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .image-display {
+        width: 100%;
+    }
+
+    .launch-tag {
+        right: 0;
+    }
+
+    .section-column-wrapper {
+        width: 100%;
+    }
+
+    .navigation-menu-mobile {
+        display: none !important;
+    }
+
+    .section-menu ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-empreendimento, .carrossel-card {
+        width: 100% !important;
+    }
+
+    .grid-display {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .titles {
+        width: 100%;
+    }
+
+    #contatoInicio section{
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .card-titles {
+        gap: 1rem;
+    }
+
+    .card-titles a {
+        min-width: 100px;
+    }
+
+    .section-menu {
+        width: 100%;
+    }
+
+    .section-menu ul {
+        align-items: start;
+    }
+
+    .fs-xl {
+        font-size: 1.5rem;
+    }
+
+    .fs-lg {
+        font-size: 1.25rem;
+    }
+
+    .grid-caracteristicas {
+        padding: 0 2rem;
+        gap: 1rem;
+    }
+
+    .container-caracteristica {
+        gap: .5rem;
+    }
+
+    .header {
+        width: 100vw;
+    }
+
+    .social-media-posts {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .section-titles {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .footer .info-container, .footer .site-menu, .certificates, .footer .top-buildings {
+        width: 100%;
+    }
+
+    .certificates img {
+        width: 100%;
+        object-fit: scale-down;
+    }
+
+    .history-section {
+        width: 100%;
+        gap: 1rem;
+    }
+    
+    .history-text p {
+        font-size: 1rem;
+    }
+
+    .institucional-logo {
+        width: 100%;
+        height: 64px;
+        object-fit: scale-down;
+    }
+
+    #primeiraParteHistoria, #segundaParteHistoria, #terceiraParteHistoria, #quartaParteHistoria {
+        display: flex;
+        flex-flow: column wrap;
+        width: 100%;
+
+    }
+
+    #primeiraParteHistoria div, #segundaParteHistoria div, #terceiraParteHistoria div, #quartaParteHistoria div {
+        display: flex;
+        flex-flow: column wrap;
+        width: 100%;
+    }
+
+    #primeiraParteHistoria div img, #segundaParteHistoria div img, #terceiraParteHistoria div img, #quartaParteHistoria div img {
+        width: 100%;
+    }
+
+    .container-wrapper {
+        padding: 1rem;
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .informacoes-gerais, .certificacoes-container, .comentarios, .valores, .processo-criacao {
+        flex-flow: column wrap;
+    }
+
+    .comentarios div, .comentarios div img {
+        width: 100%;
+    }
+
+    .comentarios button {
+        white-space: nowrap;
+    }
+
+    .comentarios-title {
+        padding: 1rem 0;
+    }
+
+    .valores div {
+        width: 100%;
+    }
+
+    .page-titles {
+        width: 100%;
+    }
+
+    .cols-2 {
+        grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+    }
+
+    .informacoes-gerais {
+        gap: 2rem;
+    }
+
+    .banner-empreendimento-container {
+        flex-direction: column;
+        width: 100%;
+        height: fit-content;
+    }
+
+    .banner-empreendimento-sidebar {
+        display: flex;
+        flex-flow: row;
+        width: 100%;
+        height: fit-content;
+        justify-content: space-between;
+    }
+
+    .principal-banner {
+        height: 300px;
+    }
+
+    .banner-empreendimento-sidebar img {
+        width: 100%;
+        height: 100px;
+    }
+
+    .banner-empreendimento-sidebar button {
+        display: none;
+    }
+
+    .informacoes-principal button {
+        padding: .5rem 1rem;
+    }
+
+    .menu-empreendimento-links {
+        gap: 1rem !important;
+    }
+
+
+    .col-set-1, .col-set-2, .col-set-3 {
+        grid-column: 1/13;
+    }
+
+    #galeria {
+        flex-flow: column;
+    }
+
+    #progresso-planta {
+        white-space: wrap;
+    }
+
+    #infoLocalizacao {
+        gap: 1rem;
+    }
+
+    #conteudoProgresso, #apresentacao, #contatoInfo {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+}

@@ -1,0 +1,5 @@
+[user]
+    name = "Gustavo Mello"
+    email = "gustavomello@v4company.com"
+[remote "origin"]
+    url = https://github.com/ogusmellov4/institucional-mru.git
