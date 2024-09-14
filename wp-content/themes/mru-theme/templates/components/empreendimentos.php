@@ -46,6 +46,26 @@
                                 <?php 
                                     $icon_classes = array(
                                         'Academia' => 'bx-dumbbell',
+                                        'Brinquedoteca' => 'bx-paint-roll',
+                                        'Espaço Kids' => 'bx-child',
+                                        'Salão de Festas' => 'bx-party',
+                                        'Carregador Veicular' => 'bx-car',
+                                        'Gás Central' => 'bx-gas-pump',
+                                        'Hidrômetro Individual' => 'bx-droplet',
+                                        'Captação de Água da Chuva' => 'bx-cloud-rain',
+                                        'Hall de Entrada' => 'bx-building-house',
+                                        'Elevador' => 'bx-elevator',
+                                        'Jardim' => 'bx-leaf',
+                                        'Área Verde' => 'bx-tree',
+                                        'Bicicletário' => 'bx-bike',
+                                        'Playground' => 'bx-play',
+                                        'Quadra Poliesportiva' => 'bx-basketball',
+                                        'Beach Tennis' => 'bx-tennis-ball',
+                                        'Padel' => 'bx-tennis',
+                                        'Energia Solar' => 'bx-sun',
+                                        'Estacionamento Rotativo' => 'bx-parking',
+                                        'Salão Gourmet' => 'bx-restaurant',
+                                        'Lavanderia' => 'bx-washer',
                                         'Carro' => 'bx-car',
                                         'Área' => 'bx-area',
                                         'Banheira' => 'bx-bath',
@@ -89,6 +109,7 @@
                                 <div class="card-circles">
                                     <?php if ($galeria_imagens): ?>
                                         <?php foreach ($galeria_imagens as $index => $imagem): ?>
+                                            <?php if ($index >= 6) break; // Limita a 6 círculos ?>
                                             <button class="card-circle <?php echo $index === 0 ? 'active-circle' : ''; ?>"></button>
                                         <?php endforeach; ?>
                                     <?php endif; ?>
@@ -96,6 +117,7 @@
                                 <?php if ($galeria_imagens): ?>
                                     <div class="card-imagem-container h-100">
                                         <?php foreach ($galeria_imagens as $index => $imagem): ?>
+                                            <?php if ($index >= 6) break; // Limita a 6 imagens ?>
                                             <img src="<?php echo esc_url($imagem['url']); ?>" class="card-imagem h-100 w-100 obj-fit-cover" style="display: <?php echo $index === 0 ? 'block' : 'none'; ?>;" />
                                         <?php endforeach; ?>
                                     </div>

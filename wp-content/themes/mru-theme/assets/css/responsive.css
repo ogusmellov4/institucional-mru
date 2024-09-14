@@ -243,6 +243,24 @@
         display: flex;
         flex-direction: column;
     }
+
+    .sticky-bar-container {
+        flex-flow: column wrap;
+        gap: .25rem  !important;
+    }
+
+    .sticky-bar-container h1 {
+        font-size: .9rem !important;
+        font-weight: 600;
+    }
+
+    .sticky-bar-container p {
+        font-size: .85rem !important;
+    }
+
+    .sticky-bar-container i {
+        font-size: 1.25rem !important;
+    }
 }
 
 @media screen and (max-width: 480px) {

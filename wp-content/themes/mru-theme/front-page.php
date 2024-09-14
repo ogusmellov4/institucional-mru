@@ -81,6 +81,26 @@ get_header(); ?>
                             // Verificar se o ícone selecionado está no mapeamento
                             $icon_classes = array(
                                 'Academia' => 'bx-dumbbell',
+                                'Brinquedoteca' => 'bx-paint-roll',
+                                'Espaço Kids' => 'bx-child',
+                                'Salão de Festas' => 'bx-party',
+                                'Carregador Veicular' => 'bx-car',
+                                'Gás Central' => 'bx-gas-pump',
+                                'Hidrômetro Individual' => 'bx-droplet',
+                                'Captação de Água da Chuva' => 'bx-cloud-rain',
+                                'Hall de Entrada' => 'bx-building-house',
+                                'Elevador' => 'bx-elevator',
+                                'Jardim' => 'bx-leaf',
+                                'Área Verde' => 'bx-tree',
+                                'Bicicletário' => 'bx-bike',
+                                'Playground' => 'bx-play',
+                                'Quadra Poliesportiva' => 'bx-basketball',
+                                'Beach Tennis' => 'bx-tennis-ball',
+                                'Padel' => 'bx-tennis',
+                                'Energia Solar' => 'bx-sun',
+                                'Estacionamento Rotativo' => 'bx-parking',
+                                'Salão Gourmet' => 'bx-restaurant',
+                                'Lavanderia' => 'bx-washer',
                                 'Carro' => 'bx-car',
                                 'Área' => 'bx-area',
                                 'Banheira' => 'bx-bath',
@@ -123,29 +143,30 @@ get_header(); ?>
                 <p>Descubra a melhor opção de investimento para você e negocie condições facilitadas</p>
             </div>
             <iframe onload="iframe_load();" id="preview" class="maps" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Rua%20Andr%C3%A9%20Marques%2C%20820%20-%20sala%201101%20-%20Centro%2C%20Santa%20Maria%20-%20RS%2C%2097010-041&amp;key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
-            <form action="" method="post" id="contatoInicio">
-                <section>
-                    <div class="input-group">
-                        <label for="contato_nome" class="label">Nome</label>
-                        <input type="text" id="contato_nome" name="contato_nome" class="input" placeholder="Insira seu nome aqui"/>
-                    </div>
-                    <div class="input-group">
-                        <label for="contato_email" class="label">E-mail</label>
-                        <input type="email" id="contato_email" name="contato_email" class="input" placeholder="Insira seu e-mail aqui"/>
-                    </div>
-                    <div class="input-group">
-                        <label for="contato_telefone" class="label">Telefone</label>
-                        <input type="text" id="contato_telefone" name="contato_telefone" class="input" placeholder="Insira seu telefone aqui"/>
-                    </div>
-                </section>
-                <section>
-                    <div class="chck-input-group">
-                        <input type="checkbox" class="checkbox-input" id="contato_politica" name="contato_politica"/>
-                        <label for="contato_politica" class="checkbox-label">Eu concordo com a Política de Privacidade.</label>
-                    </div>
-                    <button class="light-form-button">Registrar interesse</button>
-                </section>
-            </form>
+                <form action="" method="post" id="contatoInicio">
+                    <input type="hidden" name="form_id" value="formulario_home">
+                    <section>
+                        <div class="input-group">
+                            <label for="contato_nome" class="label">Nome</label>
+                            <input type="text" id="contato_nome" name="contato_nome" class="input" placeholder="Insira seu nome aqui" required/>
+                        </div>
+                        <div class="input-group">
+                            <label for="contato_email" class="label">E-mail</label>
+                            <input type="email" id="contato_email" name="contato_email" class="input" placeholder="Insira seu e-mail aqui" required/>
+                        </div>
+                        <div class="input-group">
+                            <label for="contato_telefone" class="label">Telefone</label>
+                            <input type="tel" id="contato_telefone" name="contato_telefone" class="input" placeholder="Insira seu telefone aqui" required/>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="chck-input-group">
+                            <input type="checkbox" class="checkbox-input" id="contato_politica" value="1" name="contato_politica" required/>
+                            <label for="contato_politica" class="checkbox-label">Eu concordo com a <a href="#">Política de Privacidade</a>.</label>
+                        </div>
+                        <button class="light-form-button">Registrar interesse</button>
+                    </section>
+                </form>
         </div>
     </section>
     

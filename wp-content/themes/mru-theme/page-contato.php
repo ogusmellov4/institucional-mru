@@ -26,14 +26,15 @@ get_header(); ?>
                         </div>
                         <div class="flex-col gap-sm">
                             <h4 class="fw-semibold fs-lg">Plantão de Vendas</h4>
-                            <p class="part-subtitle">CRECI 72110</p>
-                            <button class="part-outlined-button">
-                                <i class="bx bxl-whatsapp"></i>
-                                <span>(55) 99675-1159</span>
-                            </button>
+                            <a target="__blank" href="https://api.whatsapp.com/send/?phone=5555996751159&text=Ol%C3%A1%2C+quero+conhecer+os+im%C3%B3veis+da+MRU+Constru%C3%A7%C3%B5es%2C+para+morar+e+investir.+Voc%C3%AA+pode+me+ajudar%3F&type=phone_number&app_absent=0">
+                                <button class="part-outlined-button">
+                                    <i class="bx bxl-whatsapp"></i>
+                                    <span>(55) 99675-1159</span>
+                                </button>
+                            </a>
                             <button class="part-outlined-button">
                                 <i class="bx bxs-phone-call"></i>
-                                <span>(55) 3208-5692</span>
+                                <span>(55) 3095-0020</span>
                             </button>
                         </div>
                     </div>
@@ -48,31 +49,33 @@ get_header(); ?>
                         <div class="title-decorator"></div>
                         <h3 class="fw-semibold fs-lg">Registre seu interesse</h3>
                     </div>
-                    <form action="" method="post" class="flex-col gap-lg">
+                    <form action="" method="post" class="flex-col gap-lg" id="formContato">
+                        <input type="hidden" name="form_id" value="formulario_contato">
                         <div class="input-group">
                             <label for="interesse_nome" class="fw-medium">Nome</label>
-                            <input type="text" class="basic-input" id="interesse_nome" name="interesse_nome" placeholder="Nome">
+                            <input type="text" class="basic-input" id="interesse_nome" name="interesse_nome" placeholder="Nome" required>
                         </div>
                         <div class="input-group">
                             <label for="interesse_email" class="fw-medium">E-mail</label>
-                            <input type="email" class="basic-input" id="interesse_email" name="interesse_email" placeholder="E-mail">
+                            <input type="email" class="basic-input" id="interesse_email" name="interesse_email" placeholder="E-mail" required>
                         </div>
                         <div class="input-group">
                             <label for="interesse_telefone" class="fw-medium">Telefone (com DDD)</label>
-                            <input type="text" class="basic-input" id="interesse_telefone" name="interesse_telefone" placeholder="Telefone (com DDD)">
+                            <input type="tel" class="basic-input" id="interesse_telefone" name="interesse_telefone" placeholder="Telefone (com DDD)" required>
                         </div>
                         <div class="input-group">
                             <label for="interesse_desejo" class="fw-medium">O que você deseja?</label>
-                            <select class="basic-input" id="interesse_desejo" name="interesse_desejo">
-                                <option value="interesse_residencial" id="" name="">Comprar um imóvel residencial</option>
-                                <option value="" id="" name=""></option>
-                                <option value="" id="" name=""></option>
-                                <option value="" id="" name=""></option>
-                                <option value="" id="" name=""></option>
+                            <select class="basic-input" id="interesse_desejo" name="interesse_desejo" required>
+                                <option value="imovel_moradia_propria" id="imovel_moradia_propria" name="imovel_moradia_propria">Comprar um imóvel para moradia própria</option>
+                                <option value="imovel_renda_extra" id="imovel_renda_extra" name="imovel_renda_extra">Investir um imóvel para renda extra</option>
+                                <option value="sala_comercial" id="sala_comercial" name="sala_comercial">Adquirir uma sala comercial</option>
+                                <option value="negociar_terreno" id="negociar_terreno" name="negociar_terreno">Negociar um terreno</option>
+                                <option value="trabalhe_conosco" id="trabalhe_conosco" name="trabalhe_conosco">Enviar um curriculum/trabalhar conosco</option>
+                                <option value="visitar_sede" id="visitar_sede" name="visitar_sede">Visitar nossa sede</option>
                             </select>
                         </div>
                         <div class="flex gap-sm">
-                            <input type="checkbox" class="interesse_politicas" id="" name=""interesse_politicas>
+                            <input type="checkbox" class="interesse_politicas" id="" name="interesse_politicas" value="1" required>
                             <label for="interesse_politicas" class="fs-sm">Eu concordo com a <a href="#" class="fs-sm">Política de Privacidade.</a></label>
                         </div>
                         <button type="submit" class="basic-form-btn">Enviar</button>
@@ -87,19 +90,19 @@ get_header(); ?>
                 <div class="flex informacoes-gerais gap-md space-between px-xl text-primary-black">
                     <div class="flex-col gap-sm left-centered ">
                         <i class="bx bxs-phone-call bx-lg text-primary-black"></i>
-                        <p class="fw-semibold">Telefone</p>
+                        <p class="fw-semibold">Telefone (Recepção)</p>
                         <p class="sub-part-text">(55) 3028-5692</p>
                     </div>
                     <div class="flex-col gap-sm left-centered">
                         <i class="bx bxl-whatsapp bx-lg text-primary-black"></i>
                         <p class="fw-semibold">Vendas</p>
                         <p class="sub-part-text">(55) 99675-1159</p>
-                        <p class="sub-part-text">(55) 3095-0020</p>
                     </div>
                     <div class="flex-col gap-sm left-centered">
                         <i class="bx bx-at bx-lg text-primary-black"></i>
                         <p class="fw-semibold">E-mail</p>
                         <p class="sub-part-text">contato@mruconstrucoes.com.br</p>
+                        <p class="sub-part-text">rh@mruconstrucoes.com.br (Envio de CV)</p>
                     </div>
                     <div class="flex-col gap-sm left-centered">
                         <i class="bx bx-map-alt bx-lg text-primary-black"></i>

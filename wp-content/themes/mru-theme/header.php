@@ -6,6 +6,7 @@
     <title>MRU Construções</title>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/min-styles.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/responsive.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/sticky-bar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">

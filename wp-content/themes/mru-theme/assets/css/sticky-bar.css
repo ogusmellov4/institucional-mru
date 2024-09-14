@@ -1,0 +1,14 @@
+.sticky-bar-container {
+    background-color: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 100vw;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
+    font-size: .85rem;
+}

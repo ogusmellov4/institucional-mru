@@ -171,4 +171,118 @@ function mru_create_lancamentos_post_type() {
     );
 }
 add_action('init', 'mru_create_lancamentos_post_type');
+
+function process_formulario_empreendimento() {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['interesse_nome'])) {
+        global $wpdb;
+
+        // Sanitizando os dados
+        $nome = sanitize_text_field($_POST['interesse_nome']);
+        $email = sanitize_email($_POST['interesse_email']);
+        $telefone = sanitize_text_field($_POST['interesse_telefone']);
+        $desejo = sanitize_text_field($_POST['interesse_desejo']); // Verifica o valor do select
+        $politicas = isset($_POST['interesse_politicas']) ? 1 : 0; // Valor de política agora será 1 ou 0
+        $nome_empreendimento = sanitize_text_field($_POST['nome_empreendimento']); // Novo campo
+
+        // Inserindo os dados na tabela `wp_mru_form_empreendimentos`
+        $wpdb->insert(
+            'wp_mru_form_empreendimentos',
+            array(
+                'nome_empreendimento' => $nome_empreendimento,
+                'nome' => $nome,
+                'email' => $email,
+                'telefone' => $telefone,
+                'desejo' => $desejo,
+                'politicas' => $politicas
+            ),
+            array(
+                '%s', '%s', '%s', '%s', '%s', '%d' // Ajuste nos tipos de dados
+            )
+        );
+
+        // Redirecionamento
+        wp_redirect(home_url('/'));
+        exit;
+    }
+}
+
+function process_formulario_contato() {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['interesse_nome'])) {
+        global $wpdb;
+
+        // Sanitizando os dados
+        $nome = sanitize_text_field($_POST['interesse_nome']);
+        $email = sanitize_email($_POST['interesse_email']);
+        $telefone = sanitize_text_field($_POST['interesse_telefone']);
+        $desejo = sanitize_text_field($_POST['interesse_desejo']);
+        $politicas = isset($_POST['interesse_politicas']) ? 1 : 0;
+
+        // Inserindo os dados na tabela `wp_contatos`
+        $wpdb->insert(
+            'wp_mru_form_contatos',
+            array(
+                'nome' => $nome,
+                'email' => $email,
+                'telefone' => $telefone,
+                'desejo' => $desejo,
+                'politicas' => $politicas
+            ),
+            array(
+                '%s', '%s', '%s', '%s', '%d'
+            )
+        );
+
+        // Redirecionamento
+        wp_redirect(home_url('/'));
+        exit;
+    }
+}
+
+function process_formulario_home() {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contato_nome'])) {
+        global $wpdb;
+
+        // Sanitizando os dados
+        $nome = sanitize_text_field($_POST['contato_nome']);
+        $email = sanitize_email($_POST['contato_email']);
+        $telefone = sanitize_text_field($_POST['contato_telefone']);
+        $politica = isset($_POST['contato_politica']) ? 1 : 0;
+
+        // Inserindo os dados na tabela `wp_mru_form_home`
+        $wpdb->insert(
+            'wp_mru_form_home',
+            array(
+                'nome' => $nome,
+                'email' => $email,
+                'telefone' => $telefone,
+                'politica' => $politica
+            ),
+            array(
+                '%s', '%s', '%s', '%d'
+            )
+        );
+
+        // Redirecionamento
+        wp_redirect(home_url('/'));
+        exit;
+    }
+}
+
+function process_forms() {
+    if (isset($_POST['form_id'])) {
+        switch ($_POST['form_id']) {
+            case 'formulario_empreendimento':
+                process_formulario_empreendimento();
+                break;
+            case 'formulario_contato':
+                process_formulario_contato();
+                break;
+            case 'formulario_home':
+                process_formulario_home();
+                break;
+        }
+    }
+}
+add_action('init', 'process_forms');
+
 ?>
