@@ -162,7 +162,7 @@ get_header(); ?>
                     <section>
                         <div class="chck-input-group">
                             <input type="checkbox" class="checkbox-input" id="contato_politica" value="1" name="contato_politica" required/>
-                            <label for="contato_politica" class="checkbox-label">Eu concordo com a <a href="#">Política de Privacidade</a>.</label>
+                            <label for="contato_politica" class="checkbox-label">Eu concordo com a <a href="<?php echo get_permalink(get_page_by_path('politica-de-privacidade')); ?>">Política de Privacidade</a>                            .</label>
                         </div>
                         <button class="light-form-button">Registrar interesse</button>
                     </section>
@@ -176,12 +176,27 @@ get_header(); ?>
             <h2 class="section-subtitle">Transparência e qualidade são nossos compromissos com os clientes</h2>
         </div>
         <div class="social-media-posts">
-            <div class="post">1</div>
-            <div class="post">2</div>
-            <div class="post">3</div>
-            <div class="post">4</div>
-            <div class="post">5</div>
-            <div class="post">6</div>
+            <div class="post">
+                <a href="https://www.instagram.com/p/C_3xrl8SR7_/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank">
+                    <img style="width: 300px; height: 300px;" src="https://instagram.fssz1-1.fna.fbcdn.net/v/t39.30808-6/459788685_18332014519181369_909936483096494747_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMDgweDEwODAuc2RyLmYzMDgwOC5kZWZhdWx0X2ltYWdlIn0&_nc_ht=instagram.fssz1-1.fna.fbcdn.net&_nc_cat=105&_nc_ohc=ptudov42wwQQ7kNvgEi_C7G&_nc_gid=917e4ea9916b48358dbd52f610a443d0&edm=AEhyXUkAAAAA&ccb=7-5&ig_cache_key=MzQ1NjQ0OTczODk4NjU2MTI3OQ%3D%3D.3-ccb7-5&oh=00_AYB8_s1MxCv0yY0QC8coGQ9H7Y9Sitmx-HD0suB0zg5gIA&oe=66EBF08D&_nc_sid=8f1549" alt="Post do Instagram @mruconstrucoes" />
+                </a>
+            </div>
+            <div class="post">
+                <a href="https://www.instagram.com/p/C_aVVfdRj4v/" target="_blank">
+                    <img style="width: 300px; height: 300px;" src="https://instagram.fssz1-1.fna.fbcdn.net/v/t39.30808-6/457718022_18330485233181369_3743430517674090534_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE0NDAuc2RyLmYzMDgwOC5kZWZhdWx0X2ltYWdlIn0&_nc_ht=instagram.fssz1-1.fna.fbcdn.net&_nc_cat=105&_nc_ohc=8ec_ugRN71kQ7kNvgH5KyHI&_nc_gid=917e4ea9916b48358dbd52f610a443d0&edm=AEhyXUkAAAAA&ccb=7-5&ig_cache_key=MzQ0ODE2MjMwMDU2ODQxOTg4Nw%3D%3D.3-ccb7-5&oh=00_AYDadUOeIF6DEiMeK_pVhmnddrAsaDuWTuNEF-fUVd7kVg&oe=66EBF35D&_nc_sid=8f1549" alt="Post do Instagram @mruconstrucoes" />
+                </a>
+            </div>
+            <div class="post">
+                <a href="https://www.instagram.com/p/C_TwhHlSOd_/" target="_blank">
+                    <img style="width: 300px; height: 300px;" src="https://instagram.fssz1-1.fna.fbcdn.net/v/t39.30808-6/457728532_18330143089181369_6333937992626193627_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMDgweDEwODAuc2RyLmYzMDgwOC5kZWZhdWx0X2ltYWdlIn0&_nc_ht=instagram.fssz1-1.fna.fbcdn.net&_nc_cat=105&_nc_ohc=_FBjftNmJ8gQ7kNvgFQ2Nz9&_nc_gid=917e4ea9916b48358dbd52f610a443d0&edm=AEhyXUkAAAAA&ccb=7-5&ig_cache_key=MzQ0NjMxMTUyMTk4NTU1NDMwMw%3D%3D.3-ccb7-5&oh=00_AYBwhF48Xg0PoDPsOGNq7AjVu28k0o6XhxW8oLf0WZyuQg&oe=66EC0D49&_nc_sid=8f1549" alt="Post do Instagram @mruconstrucoes" />
+                </a>
+            </div>
+            <div class="post">
+                <a href="https://www.instagram.com/p/C-5_HhGycxH/?img_index=1" target="_blank">
+                    <img style="width: 300px; height: 300px;" src="https://instagram.fssz1-1.fna.fbcdn.net/v/t39.30808-6/456384548_18328837255181369_3265841852989170734_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMDgweDEwODAuc2RyLmYzMDgwOC5kZWZhdWx0X2ltYWdlIn0&_nc_ht=instagram.fssz1-1.fna.fbcdn.net&_nc_cat=105&_nc_ohc=ZN_jR9cZ-McQ7kNvgFPl05q&_nc_gid=0d84793137cd49b9bf5781d4c5f2068b&edm=AFg4Q8wAAAAA&ccb=7-5&ig_cache_key=MzQzOTAzMDE5Mzk2Nzc4MTU1NA%3D%3D.3-ccb7-5&oh=00_AYCKufuwML3n7BTtfd8IMknFgvf5qgOTOVHKknOdopXGLg&oe=66EC0415&_nc_sid=0b30b7" alt="Post do Instagram @mruconstrucoes" />
+                </a>
+            </div>
+
         </div>
     </section>
 

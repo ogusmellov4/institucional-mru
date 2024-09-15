@@ -648,7 +648,7 @@ if (have_rows('infraestrutura')): ?>
                             </div>
                             <div class="flex gap-sm">
                                 <input type="checkbox" class="interesse_politicas" id="interesse_politicas" name="interesse_politicas" value="1" required>
-                                <label for="interesse_politicas" class="fs-sm">Eu concordo com a <a href="#" class="fs-sm">Política de Privacidade.</a></label>
+                            <label for="contato_politica" class="checkbox-label">Eu concordo com a <a href="<?php echo get_permalink(get_page_by_path('politica-de-privacidade')); ?>">Política de Privacidade</a>                            .</label>
                             </div>
                             <button type="submit" class="basic-form-btn">Enviar</button>
                         </form>
