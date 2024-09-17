@@ -49,11 +49,11 @@ get_header(); ?>
     
     <?php get_template_part('templates/components/empreendimentos'); ?>
 
-    <section class="section-line-wrapper">
+    
     <?php
     $args = array(
         'post_type' => 'lancamentos',
-        'posts_per_page' => 1, // Mostra o lançamento mais recente
+        'posts_per_page' => -1, // Mostra o lançamento mais recente
     );
     $query = new WP_Query($args);
     if ($query->have_posts()) :
@@ -62,15 +62,16 @@ get_header(); ?>
             $logo = get_field('logo_lancamento');
             $titulo = get_field('titulo_do_empreendimento');
             ?>
+            <section class="section-line-wrapper">
             <div class="image-wrapper">
                 <div class="launch-tag">
                     <h2>Lançamento</h2>
                 </div>
-                <img src="<?php echo esc_url($imagem['url']); ?>" class="image-display" />
+                <img src="<?php echo esc_url($imagem['url']); ?>" class="image-display" style="width: 100%;" />
                 <div class="background-rectangle"></div>
             </div>
             <div class="caracteristicas-lancamento gap-2xl">
-                <img src="<?php echo esc_url($logo['url']); ?>">
+                <img src="<?php echo esc_url($logo['url']); ?>" style="max-width: 80%">
                 <div class="grid-caracteristicas">
                     <?php if (have_rows('qualidades_lancamento')): ?>
                         <?php while (have_rows('qualidades_lancamento')): the_row(); 
@@ -81,39 +82,39 @@ get_header(); ?>
                             // Verificar se o ícone selecionado está no mapeamento
                             $icon_classes = array(
                                 'Academia' => 'bx-dumbbell',
-                                'Brinquedoteca' => 'bx-paint-roll',
-                                'Espaço Kids' => 'bx-child',
+                                'Brinquedoteca' => 'bxs-cube',
+                                'Espaço Kids' => 'bx-dice-3',
                                 'Salão de Festas' => 'bx-party',
-                                'Carregador Veicular' => 'bx-car',
+                                'Carregador Veicular' => 'bxs-plug',
                                 'Gás Central' => 'bx-gas-pump',
                                 'Hidrômetro Individual' => 'bx-droplet',
                                 'Captação de Água da Chuva' => 'bx-cloud-rain',
-                                'Hall de Entrada' => 'bx-building-house',
-                                'Elevador' => 'bx-elevator',
-                                'Jardim' => 'bx-leaf',
-                                'Área Verde' => 'bx-tree',
-                                'Bicicletário' => 'bx-bike',
-                                'Playground' => 'bx-play',
+                                'Hall de Entrada' => 'bx-buildings',
+                                'Elevador' => 'bx-caret-up-square',
+                                'Jardim' => 'bxs-leaf',
+                                'Área Verde' => 'bxs-leaf',
+                                'Bicicletário' => 'bx-lock-alt',
+                                'Playground' => 'bx-game',
                                 'Quadra Poliesportiva' => 'bx-basketball',
                                 'Beach Tennis' => 'bx-tennis-ball',
-                                'Padel' => 'bx-tennis',
+                                'Padel' => 'bx-tennis-ball',
                                 'Energia Solar' => 'bx-sun',
-                                'Estacionamento Rotativo' => 'bx-parking',
+                                'Estacionamento Rotativo' => 'bx-car',
                                 'Salão Gourmet' => 'bx-restaurant',
-                                'Lavanderia' => 'bx-washer',
+                                'Lavanderia' => 'bxs-washer',
                                 'Carro' => 'bx-car',
                                 'Área' => 'bx-area',
                                 'Banheira' => 'bx-bath',
                                 'Acessibilidade' => 'bx-accessibility',
                                 'Wi-Fi' => 'bx-wifi',
-                                'Energia Sustentável' => 'bx-leaf',
+                                'Energia Sustentável' => 'bxs-leaf',
                                 'CCTV' => 'bx-cctv',
                                 'Mercado' => 'bx-cart-alt',
                                 'Cama' => 'bx-bed',
                                 'Vinho' => 'bx-wine',
-                                'Lixeira' => 'bx-trash-alt',
+                                'Lixeira' => 'bx-trash',
                                 'Tennis' => 'bx-tennis-ball',
-                                'Videogame' => 'bx-joystick',
+                                'Videogame' => 'bxs-joystick',
                             );
 
                             $icon_class = isset($icon_classes[$icone_qualidade]) ? $icon_classes[$icone_qualidade] : 'bx-placeholder';
@@ -126,13 +127,16 @@ get_header(); ?>
                         <?php endwhile; ?>
                     <?php endif; ?>
                 </div>
+                <a href="<?php echo esc_url(get_field('link_do_empreendimento')); ?>">
+                    <button class="btn-lancamento" style="background-color: #0c0c0c; color: #f9f9f9; padding: .5rem 1rem; ">Ver Empreendimento</button>
+                </a>
             </div>
+            </section>
             <?php
         endwhile;
         wp_reset_postdata();
     endif;
     ?>
-</section>
 
 
 

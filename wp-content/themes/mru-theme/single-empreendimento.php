@@ -87,33 +87,33 @@ get_header(); ?>
 <section class="flex gap-lg py-lg full-center w-100 menu-empreendimento full-center">
     <ul class="flex wrap px-2xl w-100 gap-2xl full-center menu-empreendimento-links">
         <li>
-            <a href="#apresentacao">Apresentação</a>
+            <a class="link-style" href="#apresentacao">Apresentação</a>
         </li>
         <li>
-            <a href="#galeria">Galeria</a>
+            <a class="link-style" href="#galeria">Galeria</a>
         </li>
         <li>
-            <a href="#progresso">Progresso</a>
+            <a class="link-style" href="#progresso">Progresso</a>
         </li>
         <?php
         // Verificar se o repetidor "Infraestrutura" tem dados
         if (have_rows('infraestrutura')): ?>
             <li>
-                <a href="#infraestrutura">Infraestrutura</a>
+                <a class="link-style" href="#infraestrutura">Infraestrutura</a>
             </li>
         <?php endif; ?>
         <?php
         // Verificar se o repetidor "Planta Baixa" tem dados
         if (have_rows('planta_baixa')): ?>
             <li>
-                <a href="#progresso">Plantas</a>
+                <a class="link-style" href="#progresso">Plantas</a>
             </li>
         <?php endif; ?>
         <li>
-            <a href="#localizacao">Localização</a>
+            <a class="link-style" href="#localizacao">Localização</a>
         </li>
         <li>
-            <a href="#contato">Contato</a>
+            <a class="link-style" href="#contato">Contato</a>
         </li>
     </ul>
 </section>
@@ -121,130 +121,158 @@ get_header(); ?>
 
 
 <main class="container-wrapper flex-col gap-2xl">
-    <section id="apresentacao" class="flex w-100 gap-xl space-between">
-        <div class="w-100">
-            <img class="w-100 h-100 obj-fit-cover" src="<?php echo esc_url($imagem_principal['url']); ?>" alt="<?php echo esc_attr($imagem_principal['alt']); ?>">
+<section id="apresentacao" class="flex w-100 gap-xl space-between">
+    <div class="w-100">
+        <img class="w-100 h-100 obj-fit-cover" src="<?php echo esc_url($imagem_principal['url']); ?>" alt="<?php echo esc_attr($imagem_principal['alt']); ?>">
+    </div>
+    <div class="flex-col gap-md w-100">
+        <div class="flex full-center gap-lg">
+            <h3 class="fw-light text-secondary-gray text-nowrap fs-sm ft-uppercase"><?php echo esc_html($tipoDoEmpreendimento); ?></h3>
+            <div class="min-line"></div>
         </div>
-                <div class="flex-col gap-md w-100">
-                    <div class="flex full-center gap-lg">
-                        <h3 class="fw-light text-secondary-gray text-nowrap fs-sm ft-uppercase"><?php echo esc_html($tipoDoEmpreendimento); ?></h3>
-                        <div class="min-line"></div>
-                    </div>
-                    <div class="flex full-center space-between">
-                        <div class="flex-col">
-                            <h1 class="ft-uppercase fw-semibold fs-lg text-primary-black"><?php echo esc_html($tituloDoEmpreendimento); ?></h1>
-                            <div class="flex space-between w-100">
-                                <?php if($faseAtual):
-                                    ?>
-                                        <p class="fs-sm ft-uppercase"><?php echo esc_html($faseAtual); ?></p>
-                                    <?php
-                                    endif;
-                                ?>
-                                    <p class="fs-sm ft-uppercase"><?php echo esc_html($tipoDoEmpreendimento); ?></p>
-                            </div>
-                        </div>
-                        <a href="#formEmpreendimento">
-                            <button class="empreendimento-btn">Solicitar Orçamento</button>
-                        </a>
+        <div class="flex full-center space-between">
+            <div class="flex-col">
+                <h1 class="ft-uppercase fw-semibold fs-lg text-primary-black"><?php echo esc_html($tituloDoEmpreendimento); ?></h1>
+                <div class="flex space-between w-100">
+                    <?php if ($faseAtual): ?>
+                        <p class="fs-sm ft-uppercase"><?php echo esc_html($faseAtual); ?></p>
+                    <?php endif; ?>
+                    <p class="fs-sm ft-uppercase"><?php echo esc_html($tipoDoEmpreendimento); ?></p>
+                </div>
+            </div>
+            <a href="#formEmpreendimento">
+                <button class="empreendimento-btn">Solicitar Orçamento</button>
+            </a>
+        </div>
+
+        <?php
+            // Recuperar o conteúdo do campo WYSIWYG
+            $apresentacao_do_empreendimento = get_field('apresentacao_do_empreendimento');
+
+            // Verificar se o campo não está vazio
+            if ($apresentacao_do_empreendimento):
+                // Exibir o conteúdo com toda a formatação do WYSIWYG
+                echo $apresentacao_do_empreendimento;
+            else:
+                // Mensagem opcional caso o campo esteja vazio
+                echo '<p>Descrição do projeto não disponível.</p>';
+            endif;
+        ?>
+
+        <div class="flex full-center gap-lg">
+            <h3 class="fw-light text-secondary-gray text-nowrap fs-sm ft-uppercase">Informações Gerais</h3>
+            <div class="min-line"></div>
+        </div>
+
+        <div class="flex wrap gap-xl full-center">
+            <?php
+            // Recuperar o grupo de campos "Informações Gerais"
+            $informacoes_gerais = get_field('informacoes_gerais');
+
+            // Verificar se existe o grupo de campos
+            if ($informacoes_gerais):
+                // Recuperar as informações
+                $min_dormitorios = $informacoes_gerais['min_dormitorios'];
+                $max_dormitorios = $informacoes_gerais['max_dormitorios'];
+                $min_garagens = $informacoes_gerais['min_garagem'];
+                $max_garagens = $informacoes_gerais['max_garagem'];
+                $metragem_minima = $informacoes_gerais['metragem_minima'];
+                $metragem_maxima = $informacoes_gerais['metragem_maxima'];
+                $registro_incorporacao = $informacoes_gerais['registro_de_incorporacao'];
+                $previsao_entrega = $informacoes_gerais['previsao_de_entrega'];
+                $unidades_disponiveis = $informacoes_gerais['unidades_disponiveis'];
+
+                // Dormitórios (apenas para Residencial)
+                if ($tipo_do_empreendimento == 'Residencial'):
+                    ?>
+                    <div class="flex-col gap-xs">
+                        <h2 class="ft-uppercase fs-sm">
+                            <?php echo ($min_dormitorios == 1) ? 'Dormitório' : 'Dormitórios'; ?>
+                        </h2>
+                        <p class="fs-sm">
+                            <?php 
+                                if ($min_dormitorios) {
+                                    echo esc_html(
+                                        $min_dormitorios . 
+                                        ($min_dormitorios > 1 ? ' a ' . $max_dormitorios : '') . 
+                                        ' ' . 
+                                        ($min_dormitorios == 1 ? '' : 'Dormitórios')
+                                    );
+                                }
+                                 else {
+                                    echo 'Indisponível';
+                                }
+                            ?>
+                        </p>
                     </div>
                     <?php
-                        // Recuperar o conteúdo do campo WYSIWYG
-                        $apresentacao_do_empreendimento = get_field('apresentacao_do_empreendimento');
+                endif;
 
-                        // Verificar se o campo não está vazio
-                        if ($apresentacao_do_empreendimento):
-                            // Exibir o conteúdo com toda a formatação do WYSIWYG
-                            echo $apresentacao_do_empreendimento;
-                        else:
-                            // Mensagem opcional caso o campo esteja vazio
-                            echo '<p>Descrição do projeto não disponível.</p>';
-                        endif;
-                    ?>
-                    <div class="flex full-center gap-lg">
-                        <h3 class="fw-light text-secondary-gray text-nowrap fs-sm ft-uppercase">Informações Gerais</h3>
-                        <div class="min-line"></div>
-                    </div>
-                    <div class="flex wrap gap-xl full-center">
-                        <?php
-                        // Recuperar o grupo de campos "Informações Gerais"
-                        $informacoes_gerais = get_field('informacoes_gerais');
-
-                        // Recuperar o valor do tipo de empreendimento
-                        $tipo_do_empreendimento_array  = get_field('tipo_do_empreendimento');
-
-                        if (is_array($tipo_do_empreendimento_array) && isset($tipo_do_empreendimento_array[0])) {
-                            $tipo_do_empreendimento = $tipo_do_empreendimento_array[0];
-                        } else {
-                            $tipo_do_empreendimento = null;
-                        }
-
-
-                        // Verificar se o grupo de campos não é nulo
-                        if ($tipo_do_empreendimento == 'Residencial'):
-                            // Recuperar os campos individuais do grupo
-                            $min_dormitorios = $informacoes_gerais['min_dormitorios'];
-                            $max_dormitorios = $informacoes_gerais['max_dormitorios'];
-                            $min_garagens = $informacoes_gerais['max_garagem'];
-                            $max_garagens = $informacoes_gerais['max_garagem'];
-                            $metragem_minima = $informacoes_gerais['metragem_minima'];
-                            $metragem_maxima = $informacoes_gerais['metragem_maxima'];
-                            $registro_incorporacao = $informacoes_gerais['registro_de_incorporacao'];
-                            $previsao_entrega = $informacoes_gerais['previsao_de_entrega'];
-                            $unidades_disponiveis = $informacoes_gerais['unidades_disponiveis'];
-
-                            // Dormitórios e Garagem (somente para Residencial)
-                            if ($tipo_do_empreendimento === 'Residencial'):
-                                ?>
-                                <div class="flex-col gap-xs">
-                                    <h2 class="ft-uppercase fs-sm">Dormitórios</h2>
-                                    <p class="fs-sm"><?php echo esc_html($min_dormitorios ? $min_dormitorios . ' a ' . $max_dormitorios : 'Indisponível'); ?></p>
-                                </div>
-                                <div class="flex-col gap-xs">
-                                    <h2 class="ft-uppercase fs-sm">Garagem</h2>
-                                    <p class="fs-sm"><?php echo esc_html($min_garagens ? $min_garagens . ' a ' . $max_garagens : 'Indisponível'); ?></p>
-                                </div>
-                                <?php
-                            endif;
-
-                            // Metragem (usar mínima e máxima)
-                            ?>
-                            <div class="flex-col gap-xs">
-                                <h2 class="ft-uppercase fs-sm">Metragem</h2>
-                                <p class="fs-sm"><?php echo esc_html(($metragem_minima && $metragem_maxima) ? $metragem_minima . ' até ' . $metragem_maxima . ' m²' : 'Indisponível'); ?></p>
-                            </div>
-                            <?php
-
-                            // Registro de Incorporação
-                            ?>
-                            <div class="flex-col gap-xs">
-                                <h2 class="ft-uppercase fs-sm">Registro de Incorporação</h2>
-                                <p class="fs-sm"><?php echo esc_html($registro_incorporacao ? $registro_incorporacao : 'Indisponível'); ?></p>
-                            </div>
-                            <?php
-
-                            // Previsão de Entrega
-                            ?>
-                            <div class="flex-col gap-xs">
-                                <h2 class="ft-uppercase fs-sm">Previsão de Entrega</h2>
-                                <p class="fs-sm"><?php echo esc_html($previsao_entrega ? date('m/Y', strtotime($previsao_entrega)) : 'Indisponível'); ?></p>
-                            </div>
-                            <?php
-
-                            // Unidades Disponíveis
-                            ?>
-                            <div class="flex-col gap-xs">
-                                <h2 class="ft-uppercase fs-sm">Unidades Disponíveis</h2>
-                                <p class="fs-sm"><?php echo esc_html($unidades_disponiveis ? $unidades_disponiveis : 'Indisponível'); ?></p>
-                            </div>
-                            <?php
-                        else:
-                            // Caso o grupo de campos seja nulo ou não exista
-                            ?>
-                            <p>Nenhuma informação disponível.</p>
-                        <?php endif; ?>
-                    </div>
+                // Garagem
+                ?>
+                <div class="flex-col gap-xs">
+                    <h2 class="ft-uppercase fs-sm">
+                        <?php echo ($min_garagens == 1) ? 'Garagem' : 'Garagens'; ?>
+                    </h2>
+                    <p class="fs-sm">
+                        <?php 
+                            if ($min_garagens) {
+                                echo esc_html(
+                                    $min_garagens . 
+                                    ($min_garagens > 1 ? ' a ' . $max_garagens : '') . 
+                                    ' ' . 
+                                    ($min_garagens == 1 ? '' : 'Garagens')
+                                );
+                            }
+                            else {
+                                echo 'Indisponível';
+                            }
+                        ?>
+                    </p>
                 </div>
-            </section>
+
+                <!-- Metragem (usar mínima e máxima) -->
+                <div class="flex-col gap-xs">
+                    <h2 class="ft-uppercase fs-sm">Metragem</h2>
+                    <p class="fs-sm">
+                        <?php echo esc_html(($metragem_minima && $metragem_maxima) ? $metragem_minima . ' até ' . $metragem_maxima . ' m²' : 'Indisponível'); ?>
+                    </p>
+                </div>
+
+                <!-- Registro de Incorporação -->
+                <div class="flex-col gap-xs">
+                    <h2 class="ft-uppercase fs-sm">Registro de Incorporação</h2>
+                    <p class="fs-sm">
+                        <?php echo esc_html($registro_incorporacao ? $registro_incorporacao : 'Indisponível'); ?>
+                    </p>
+                </div>
+
+                <!-- Previsão de Entrega -->
+                <div class="flex-col gap-xs">
+                    <h2 class="ft-uppercase fs-sm">Previsão de Entrega</h2>
+                    <p class="fs-sm">
+                        <?php echo esc_html($previsao_entrega ? date('m/Y', strtotime($previsao_entrega)) : 'Indisponível'); ?>
+                    </p>
+                </div>
+
+                <!-- Unidades Disponíveis -->
+                <div class="flex-col gap-xs">
+                    <h2 class="ft-uppercase fs-sm">Unidades Disponíveis</h2>
+                    <p class="fs-sm">
+                        <?php echo esc_html($unidades_disponiveis ? $unidades_disponiveis : 'Indisponível'); ?>
+                    </p>
+                </div>
+
+                <?php
+            else:
+                // Caso o grupo de campos seja nulo ou não exista
+                ?>
+                <p>Nenhuma informação disponível.</p>
+            <?php endif; ?>
+        </div>
+    </div>
+</section>
+
             <section id="galeria" class="flex-col gap-xl w-100">
                 <div class="flex full-center gap-lg">
                     <h3 class="fw-light text-secondary-gray text-nowrap fs-sm ft-uppercase"> <?php echo esc_html($tituloDoEmpreendimento); ?> / GALERIA</h3>
@@ -419,39 +447,39 @@ if (have_rows('infraestrutura')): ?>
             // Mapeamento dos ícones
             $icon_classes = array(
                 'Academia' => 'bx-dumbbell',
-                'Brinquedoteca' => 'bx-paint-roll',
-                'Espaço Kids' => 'bx-child',
+                'Brinquedoteca' => 'bxs-cube',
+                'Espaço Kids' => 'bx-dice-3',
                 'Salão de Festas' => 'bx-party',
-                'Carregador Veicular' => 'bx-car',
+                'Carregador Veicular' => 'bxs-plug',
                 'Gás Central' => 'bx-gas-pump',
                 'Hidrômetro Individual' => 'bx-droplet',
                 'Captação de Água da Chuva' => 'bx-cloud-rain',
-                'Hall de Entrada' => 'bx-building-house',
-                'Elevador' => 'bx-elevator',
-                'Jardim' => 'bx-leaf',
-                'Área Verde' => 'bx-tree',
-                'Bicicletário' => 'bx-bike',
-                'Playground' => 'bx-play',
+                'Hall de Entrada' => 'bx-buildings',
+                'Elevador' => 'bx-caret-up-square',
+                'Jardim' => 'bxs-leaf',
+                'Área Verde' => 'bxs-leaf',
+                'Bicicletário' => 'bx-lock-alt',
+                'Playground' => 'bx-game',
                 'Quadra Poliesportiva' => 'bx-basketball',
                 'Beach Tennis' => 'bx-tennis-ball',
-                'Padel' => 'bx-tennis',
+                'Padel' => 'bx-tennis-ball',
                 'Energia Solar' => 'bx-sun',
-                'Estacionamento Rotativo' => 'bx-parking',
+                'Estacionamento Rotativo' => 'bx-car',
                 'Salão Gourmet' => 'bx-restaurant',
-                'Lavanderia' => 'bx-washer',
+                'Lavanderia' => 'bxs-washer',
                 'Carro' => 'bx-car',
                 'Área' => 'bx-area',
                 'Banheira' => 'bx-bath',
                 'Acessibilidade' => 'bx-accessibility',
                 'Wi-Fi' => 'bx-wifi',
-                'Energia Sustentável' => 'bx-leaf',
+                'Energia Sustentável' => 'bxs-leaf',
                 'CCTV' => 'bx-cctv',
                 'Mercado' => 'bx-cart-alt',
                 'Cama' => 'bx-bed',
                 'Vinho' => 'bx-wine',
-                'Lixeira' => 'bx-trash-alt',
+                'Lixeira' => 'bx-trash',
                 'Tennis' => 'bx-tennis-ball',
-                'Videogame' => 'bx-joystick',
+                'Videogame' => 'bxs-joystick',
             );
 
             // Recuperar os dados do campo repetidor "Infraestrutura"
@@ -463,7 +491,7 @@ if (have_rows('infraestrutura')): ?>
                 // Verificar se o ícone selecionado está no mapeamento
                 $icon_class = isset($icon_classes[$icone]) ? $icon_classes[$icone] : 'bx-placeholder';
                 ?>
-                <div class="flex-col gap-sm full-center qualidade">
+                <div class="flex-col gap-sm full-center qualidade text-center">
                     <i class="bx <?php echo esc_attr($icon_class); ?> bx-md"></i>
                     <h2 class="ft-uppercase fw-bold"><?php echo esc_html($titulo); ?></h2>
                     <p class="text-center"><?php echo esc_html($descricao); ?></p>

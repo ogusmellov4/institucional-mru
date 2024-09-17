@@ -26,8 +26,12 @@
             $args = array(
                 'post_type' => 'empreendimento',
                 'posts_per_page' => -1,
+                'orderby' => 'date', // Ordenar por data
+                'order' => 'ASC', // Exibir os posts mais antigos primeiro
             );
-            $query = new WP_Query($args);
+            
+            $query = new WP_Query($args); // Inicializa a query
+
             if ($query->have_posts()) :
                 while ($query->have_posts()) : $query->the_post();
                     $status = get_field('fase');
@@ -35,6 +39,7 @@
                     $galeria_imagens = get_field('galeria_de_imagens');
                     $tipos = get_field('tipo_do_empreendimento');
                     ?>
+                    
                     <div class="card-empreendimento">
                         <div class="carrossel-card">
                             <div class="card-empreendimento-info">
@@ -42,59 +47,59 @@
                                     <p><?php echo esc_html($status); ?></p>
                                 </div>
                                 <div id="tagsTag">
-                                <?php if ($qualidades): ?>
-                                <?php 
-                                    $icon_classes = array(
-                                        'Academia' => 'bx-dumbbell',
-                                        'Brinquedoteca' => 'bx-paint-roll',
-                                        'Espaço Kids' => 'bx-child',
-                                        'Salão de Festas' => 'bx-party',
-                                        'Carregador Veicular' => 'bx-car',
-                                        'Gás Central' => 'bx-gas-pump',
-                                        'Hidrômetro Individual' => 'bx-droplet',
-                                        'Captação de Água da Chuva' => 'bx-cloud-rain',
-                                        'Hall de Entrada' => 'bx-building-house',
-                                        'Elevador' => 'bx-elevator',
-                                        'Jardim' => 'bx-leaf',
-                                        'Área Verde' => 'bx-tree',
-                                        'Bicicletário' => 'bx-bike',
-                                        'Playground' => 'bx-play',
-                                        'Quadra Poliesportiva' => 'bx-basketball',
-                                        'Beach Tennis' => 'bx-tennis-ball',
-                                        'Padel' => 'bx-tennis',
-                                        'Energia Solar' => 'bx-sun',
-                                        'Estacionamento Rotativo' => 'bx-parking',
-                                        'Salão Gourmet' => 'bx-restaurant',
-                                        'Lavanderia' => 'bx-washer',
-                                        'Carro' => 'bx-car',
-                                        'Área' => 'bx-area',
-                                        'Banheira' => 'bx-bath',
-                                        'Acessibilidade' => 'bx-accessibility',
-                                        'Wi-Fi' => 'bx-wifi',
-                                        'Energia Sustentável' => 'bx-leaf',
-                                        'CCTV' => 'bx-cctv',
-                                        'Mercado' => 'bx-cart-alt',
-                                        'Cama' => 'bx-bed',
-                                        'Vinho' => 'bx-wine',
-                                        'Lixeira' => 'bx-trash-alt',
-                                        'Tennis' => 'bx-tennis-ball',
-                                        'Videogame' => 'bx-joystick',
-                                    );
-
-                                    $counter = 0; // Inicializa o contador
-                                    foreach ($qualidades as $qualidade): 
-                                        $icon_class = isset($icon_classes[$qualidade['icone']]) ? $icon_classes[$qualidade['icone']] : 'bx-placeholder';
-                                        if ($counter >= 2) break; // Interrompe o loop após exibir 2 itens
-                                        ?>
-                                        <div class="card-tag">
-                                            <i class="bx <?php echo esc_attr($icon_class); ?>"></i>
-                                            <p><?php echo esc_html($qualidade['titulo_da_qualidade']); ?></p>
-                                        </div>
+                                    <?php if ($qualidades): ?>
                                         <?php 
-                                        $counter++;
-                                    endforeach; 
-                                    ?>
-                                <?php endif; ?>
+                                        $icon_classes = array(
+                                            'Academia' => 'bx-dumbbell',
+                                            'Brinquedoteca' => 'bxs-cube',
+                                            'Espaço Kids' => 'bx-dice-3',
+                                            'Salão de Festas' => 'bx-party',
+                                            'Carregador Veicular' => 'bxs-plug',
+                                            'Gás Central' => 'bx-gas-pump',
+                                            'Hidrômetro Individual' => 'bx-droplet',
+                                            'Captação de Água da Chuva' => 'bx-cloud-rain',
+                                            'Hall de Entrada' => 'bx-buildings',
+                                            'Elevador' => 'bx-caret-up-square',
+                                            'Jardim' => 'bxs-leaf',
+                                            'Área Verde' => 'bxs-leaf',
+                                            'Bicicletário' => 'bx-lock-alt',
+                                            'Playground' => 'bx-game',
+                                            'Quadra Poliesportiva' => 'bx-basketball',
+                                            'Beach Tennis' => 'bx-tennis-ball',
+                                            'Padel' => 'bx-tennis-ball',
+                                            'Energia Solar' => 'bx-sun',
+                                            'Estacionamento Rotativo' => 'bx-car',
+                                            'Salão Gourmet' => 'bx-restaurant',
+                                            'Lavanderia' => 'bxs-washer',
+                                            'Carro' => 'bx-car',
+                                            'Área' => 'bx-area',
+                                            'Banheira' => 'bx-bath',
+                                            'Acessibilidade' => 'bx-accessibility',
+                                            'Wi-Fi' => 'bx-wifi',
+                                            'Energia Sustentável' => 'bxs-leaf',
+                                            'CCTV' => 'bx-cctv',
+                                            'Mercado' => 'bx-cart-alt',
+                                            'Cama' => 'bx-bed',
+                                            'Vinho' => 'bx-wine',
+                                            'Lixeira' => 'bx-trash',
+                                            'Tennis' => 'bx-tennis-ball',
+                                            'Videogame' => 'bxs-joystick',
+                                        );
+
+                                        $counter = 0; 
+                                        foreach ($qualidades as $qualidade): 
+                                            $icon_class = isset($icon_classes[$qualidade['icone']]) ? $icon_classes[$qualidade['icone']] : 'bx-placeholder';
+                                            if ($counter >= 2) break;
+                                            ?>
+                                            <div class="card-tag">
+                                                <i class="bx <?php echo esc_attr($icon_class); ?>"></i>
+                                                <p><?php echo esc_html($qualidade['titulo_da_qualidade']); ?></p>
+                                            </div>
+                                            <?php 
+                                            $counter++;
+                                        endforeach; 
+                                        ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <div class="card-imagens">
@@ -109,7 +114,7 @@
                                 <div class="card-circles">
                                     <?php if ($galeria_imagens): ?>
                                         <?php foreach ($galeria_imagens as $index => $imagem): ?>
-                                            <?php if ($index >= 6) break; // Limita a 6 círculos ?>
+                                            <?php if ($index >= 6) break; ?>
                                             <button class="card-circle <?php echo $index === 0 ? 'active-circle' : ''; ?>"></button>
                                         <?php endforeach; ?>
                                     <?php endif; ?>
@@ -117,7 +122,7 @@
                                 <?php if ($galeria_imagens): ?>
                                     <div class="card-imagem-container h-100">
                                         <?php foreach ($galeria_imagens as $index => $imagem): ?>
-                                            <?php if ($index >= 6) break; // Limita a 6 imagens ?>
+                                            <?php if ($index >= 6) break; ?>
                                             <img src="<?php echo esc_url($imagem['url']); ?>" class="card-imagem h-100 w-100 obj-fit-cover" style="display: <?php echo $index === 0 ? 'block' : 'none'; ?>;" />
                                         <?php endforeach; ?>
                                     </div>
@@ -134,12 +139,13 @@
                     </div>
                     <?php
                 endwhile;
-                wp_reset_postdata();
+                wp_reset_postdata(); // Sempre reseta a query
             else :
                 echo '<p>Nenhum empreendimento encontrado.</p>';
             endif;
             ?>
         </section>
+
     </main>
 </div>
 

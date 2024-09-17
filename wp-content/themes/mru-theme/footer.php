@@ -6,7 +6,7 @@
             <i class="bx bxs-phone-call bx-md"></i>
             <p>(55) 3095-0020</p>
         </div>
-        <a target="__blank" href="https://api.whatsapp.com/send/?phone=5555996751159&text=Ol%C3%A1%2C+quero+conhecer+os+im%C3%B3veis+da+MRU+Constru%C3%A7%C3%B5es%2C+para+morar+e+investir.+Voc%C3%AA+pode+me+ajudar%3F&type=phone_number&app_absent=0">
+        <a class="link-style" target="__blank" href="https://api.whatsapp.com/send/?phone=5555996751159&text=Ol%C3%A1%2C+quero+conhecer+os+im%C3%B3veis+da+MRU+Constru%C3%A7%C3%B5es%2C+para+morar+e+investir.+Voc%C3%AA+pode+me+ajudar%3F&type=phone_number&app_absent=0">
             <div class="flex gap-sm full-center">
                 <i class="bx bxl-whatsapp bx-md"></i>
                 <p>(55) 99675-1159</p>
@@ -20,7 +20,7 @@
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Logo MRU Footer.png"/>
             </h1>
             <div class="info-social">
-                <a target="__blank" href="#">
+                <a target="__blank" href="https://www.facebook.com/mruconstrucoes/?locale=pt_BR">
                     <i class="bx bxl-facebook-square"></i>
                 </a>
                 <a target="__blank" href="https://www.instagram.com/mruconstrucoes/">
@@ -29,7 +29,7 @@
                 <a target="__blank" href="https://api.whatsapp.com/send/?phone=5555996751159&text=Ol%C3%A1%2C+quero+conhecer+os+im%C3%B3veis+da+MRU+Constru%C3%A7%C3%B5es%2C+para+morar+e+investir.+Voc%C3%AA+pode+me+ajudar%3F&type=phone_number&app_absent=0">
                     <i class="bx bxl-whatsapp"></i>
                 </a>
-                <a target="__blank" href="#">
+                <a target="__blank" href="https://www.youtube.com/@mruconstrucoes820?app=desktop">
                     <i class="bx bxl-youtube"></i>
                 </a>
             </div>
